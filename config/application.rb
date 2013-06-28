@@ -11,13 +11,15 @@ end
 
 module TV
   class Application < Rails::Application
-    config.generators.assets false
-    config.generators.helper false
-    config.generators.template_engine :slim
-    config.generators.stylesheets false
-    config.generators.javascripts false
-    config.generators.fixture_replacement :factory_girl, dir: "spec/factories"
-    config.generators.test_framework :rspec, views: false, routes: false, requests: false
+    config.generators do |c|
+      c.assets false
+      c.helper false
+      c.template_engine :slim
+      c.stylesheets false
+      c.javascripts false
+      c.fixture_replacement :factory_girl, :dir => "spec/factories"
+      c.test_framework :rspec, :views => false, :routes => false, :requests => false
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

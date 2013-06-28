@@ -211,6 +211,7 @@ DEPENDENCIES
   anjlab-bootstrap-rails (>= 2.3)
   binding_of_caller
   cancan
+  capybara
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
