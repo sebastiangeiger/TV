@@ -56,6 +56,7 @@ group :test do
   gem "poltergeist"
   gem "simplecov"
   gem "selenium-webdriver"
+  gem "poltergeist"
 end
 
 group :development do

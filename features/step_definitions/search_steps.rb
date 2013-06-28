@@ -1,8 +1,8 @@
-When(/^I enter "(.*?)" into the search form$/) do |arg1|
-    pending # express the regexp above with the code you wish you had
+When(/^I enter "(.*?)" into the search form$/) do |query|
+  fill_in :search_query, with: query
 end
 
-Then(/^I should see "(.*?)" in the auto\-complete list$/) do |arg1|
-    pending # express the regexp above with the code you wish you had
+Then(/^I should see "(.*?)" in the auto\-complete list$/) do |name|
+  page.should have_content name
 end
 
