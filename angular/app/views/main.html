@@ -1,9 +1,8 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+  <input type="text"
+    id="search-query"
+    autofocus="autofocus"
+    ng-model="searchTerm"
+    ng-change="updateSearchResults(searchTerm)" />
+  <searchresults results='searchResults'></searchresults>
 </div>

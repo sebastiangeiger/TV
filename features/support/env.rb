@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'pry'
 
 After do |scenario|
   if scenario.status == :failed

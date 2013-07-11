@@ -1,5 +1,5 @@
 When(/^I enter "(.*?)" into the search form$/) do |query|
-  fill_in :search_query, with: query
+  find("input#search-query").set(query)
 end
 
 Then(/^I should see "(.*?)" in the auto\-complete list$/) do |name|
