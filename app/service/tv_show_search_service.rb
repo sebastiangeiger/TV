@@ -4,6 +4,10 @@ class TvShowSearchService
   end
   def results
     tv_show = TvShow.arel_table
-    TvShow.where(tv_show[:name].matches("%#{@query[:name]}%"))
+    if @query[:name].blank?
+      []
+    else
+      TvShow.where(tv_show[:name].matches("%#{@query[:name]}%"))
+    end
   end
 end

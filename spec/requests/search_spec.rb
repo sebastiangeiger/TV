@@ -27,6 +27,13 @@ describe "Searching" do
         show_names.should_not include "Firefly"
       end
     end
+    context 'and an empty search query' do
+      let(:query) { "" }
+      its(:json) { should have_key "tv_shows" }
+      it 'should not have any TV show in the "tv_shows" key' do
+        show_names.should be_empty
+      end
+    end
   end
 
 end
