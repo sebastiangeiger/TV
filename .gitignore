@@ -17,3 +17,17 @@
 .rspec
 .project
 spec/views
+
+# Ignoring angular files
+angular/node_modules
+angular/.tmp
+angular/.sass-cache
+angular/app/bower_components
+
+node_modules
+.tmp
+.sass-cache
+app/bower_components
+
+# Angular build files go here
+public
