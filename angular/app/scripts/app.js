@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontendApp', [])
+angular.module('tvApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
