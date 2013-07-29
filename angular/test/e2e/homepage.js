@@ -1,6 +1,7 @@
 describe('my app', function() {
-  it('should display the home page', function() {
+  it('should display "The Wire" and "Firefly" when searching for "ire"', function() {
     browser().navigateTo('/');
-    expect(element('.hero-unit').text()).toContain('Enjoy coding! - Yeoman');
+    input('search-query').enter('ire');
+    expect(repeater('ul#search-results li').count()).toEqual(2);
   });
 });
