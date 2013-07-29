@@ -5,9 +5,4 @@ describe('Directive: searchwidget', function () {
 
   var element;
 
-  it('should make hidden element visible', inject(function ($rootScope, $compile) {
-    element = angular.element('<searchwidget></searchwidget>');
-    element = $compile(element)($rootScope);
-    expect(element.text()).toBe('this is the searchwidget directive');
-  }));
 });
