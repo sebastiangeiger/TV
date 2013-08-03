@@ -7,12 +7,6 @@
 require 'cucumber/rails'
 require 'pry'
 
-After do |scenario|
-  if scenario.status == :failed
-    save_and_open_page
-  end
-end
-
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.
