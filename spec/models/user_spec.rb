@@ -58,15 +58,41 @@ describe User do
   end
 
   describe ".for_email" do
-    let(:user) { FactoryGirl.create(:user, email: "test@example.com") }
     subject { User.for_email(email) }
     context 'when asking for the user by his email' do
       let(:email) { user.email }
+      let(:user) { FactoryGirl.create(:user, email: "test@example.com") }
       it { should == user }
     end
     context 'when asking for a non existing user' do
       let(:email) { "does_not_exist@example.com" }
       it { should be_present }
+      it { should be_a NonExistingUser }
+    end
+    context 'when asking for nil' do
+      let(:email) { "does_not_exist@example.com" }
+      it { should be_present }
+    end
+  end
+
+  describe ".for_credentials" do
+    subject { User.for_credentials(email: email, password: password) }
+    let!(:user) { FactoryGirl.create(:user, email: correct_email, password: correct_password) }
+    let(:correct_email) { "test@example.com" }
+    let(:correct_password) { "correctPassword" }
+    context 'when passing the right email and password' do
+      let(:email) { correct_email }
+      let(:password) { correct_password }
+      it { should == user }
+    end
+    context 'when passing the wrong email' do
+      let(:email) { "other_user@example.com" }
+      let(:password) { correct_password }
+      it { should be_a NonExistingUser }
+    end
+    context 'when passing the wrong password' do
+      let(:email) { correct_email }
+      let(:password) { "wrongPassword" }
       it { should be_a NonExistingUser }
     end
   end

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    user = User.for_email(params[:email])
-    if user.authenticate(params[:password])
+    user = User.for_credentials(params)
+    if user.authenticated?
       head :ok
     else
       head :unauthorized
