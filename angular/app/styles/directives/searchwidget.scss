@@ -1,0 +1,12 @@
+#searchwidget {
+  background-color: $darkgrey;
+  span {
+    input {
+      width: 100%;
+      height: 100%;
+      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+      box-sizing: border-box;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+ <div ng-controller='SearchCtrl' id='searchwidget'>
+   <span>
+     <input type='text' id='search-query' autofocus='autofocus' ng-model='searchTerm' ng-change='updateSearchResults(searchTerm)' />
+   </span>
+   <searchresults results='searchResults'></searchresults>
+ </div>
