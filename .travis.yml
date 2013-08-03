@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - "2.0.0"
+before_script:
+  - npm install -g grunt-cli
+  - cd angular
+  - npm install
+  - cd -
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake grunt:build
+  - ls -la public
+script:
+  - bundle exec rake

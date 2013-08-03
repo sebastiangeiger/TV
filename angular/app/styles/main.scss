@@ -1,0 +1,16 @@
+$darkgrey: #d6d6d6;
+$lightgrey: #fafafa;
+$fontcolor: #333333;
+
+@import "bootstrap-sass/lib/bootstrap";
+@import "directives/searchwidget.scss";
+
+html, body {
+  margin: 20px;
+}
+
+body {
+  background: $lightgrey;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: $fontcolor;
+}

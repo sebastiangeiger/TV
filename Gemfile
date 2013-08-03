@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+gem 'compass' # Used by angular
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,21 +26,17 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
 # Use unicorn as the app server
 # gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
-
 gem "devise"
 gem "cancan"
 gem "slim-rails"
+gem "jbuilder"
+
 group :assets do
   gem "anjlab-bootstrap-rails", ">= 2.3", :require => "bootstrap-rails"
 end
@@ -47,14 +44,16 @@ end
 group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
+  gem 'capybara'
 end
 
 group :test do
-  gem "cucumber-rails", :require => false
+  gem 'cucumber-rails', require: false
   gem "database_cleaner"
   gem "poltergeist"
   gem "simplecov"
   gem "selenium-webdriver"
+  gem "poltergeist"
 end
 
 group :development do
