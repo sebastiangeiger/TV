@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def self.for_email(email)
-    User.where(email: email).first || EmptyUser.new
+    User.where(email: email).first || NonExistingUser.new
   end
 end
 
-class EmptyUser
+class NonExistingUser
   def authenticate(password)
     false
   end

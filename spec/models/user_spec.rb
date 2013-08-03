@@ -56,4 +56,18 @@ describe User do
       it { should be false }
     end
   end
+
+  describe ".for_email" do
+    let(:user) { FactoryGirl.create(:user, email: "test@example.com") }
+    subject { User.for_email(email) }
+    context 'when asking for the user by his email' do
+      let(:email) { user.email }
+      it { should == user }
+    end
+    context 'when asking for a non existing user' do
+      let(:email) { "does_not_exist@example.com" }
+      it { should be_present }
+      it { should be_a NonExistingUser }
+    end
+  end
 end
