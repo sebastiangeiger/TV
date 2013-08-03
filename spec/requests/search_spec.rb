@@ -1,11 +1,5 @@
 require "spec_helper"
 
-class Response < SimpleDelegator
-  def json
-    JSON.parse(body)
-  end
-end
-
 describe "Searching" do
   let(:request) { post "/api/search", query: query, format: :json }
   subject { request; Response.new(response) }

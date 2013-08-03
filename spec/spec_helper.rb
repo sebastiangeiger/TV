@@ -27,3 +27,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+class Response < SimpleDelegator
+  def json
+    JSON.parse(body)
+  end
+end
