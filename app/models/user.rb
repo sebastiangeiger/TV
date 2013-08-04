@@ -24,4 +24,7 @@ class NonExistingUser
   def authenticated?
     false
   end
+  def error
+    "Wrong email or password"
+  end
 end

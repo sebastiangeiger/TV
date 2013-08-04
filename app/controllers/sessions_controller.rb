@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
+  respond_to :json
   def create
     user = User.for_credentials(params)
-    if user.authenticated?
-      head :ok
-    else
-      head :unauthorized
+    unless user.authenticated?
+      render json: { error: user.error }, status: :unauthorized
     end
   end
 
