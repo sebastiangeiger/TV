@@ -15,12 +15,14 @@ describe "Login" do
     let(:password) { "correctPassword" }
     its(:status) { should == 200 }
     its(:json) { should have_key "session_token" }
+    specify { expect { subject }.to change(Session, :count).to(1) }
   end
   context 'when trying with an invalid user' do
     let(:password) { "wrongPassword" }
     its(:status) { should == 401 }
     its(:json) { should_not have_key "session_token" }
     its(:json) { should have_key "error" }
+    specify { expect { subject }.to_not change(Session, :count) }
   end
 end
 

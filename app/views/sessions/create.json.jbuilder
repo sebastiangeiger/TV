@@ -1,1 +1,1 @@
-json.session_token "12345"
+json.session_token @session.token

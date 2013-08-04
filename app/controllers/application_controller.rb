@@ -3,8 +3,12 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
+    error = nil
     unless token
-      render json: { error: "No token given"}, status: :unauthorized
+       error = "No token given"
+    end
+    if error
+      render json: { error: error}, status: :unauthorized
     end
   end
 end
